@@ -4,6 +4,8 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { StateCan } from './StateContainer/StateContainer';
 
+
+
 ReactDOM.render(
 <StateCan.Provider>
     <App />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@material-ui/core';
 import { createClient, Provider } from 'urql';
 import { useAsync } from 'react-use';
 import RequestWrapper from '../RequestWrapper/RequestWrapper';
@@ -30,9 +31,11 @@ const Wrapper = (props: any) => {
     
     if (client.value) {
         return (
-            <Provider value={client.value}>
-                <RequestWrapper />
-            </Provider>
+            <Box component="div" m="10">
+                <Provider value={client.value}>
+                    <RequestWrapper />
+                </Provider>
+            </Box>
         )
     }
     return <div>No Repository</div>

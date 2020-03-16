@@ -4,7 +4,8 @@ import MyCard from "../MyCard/MyCard";
 
 const useStyles = makeStyles(() => ({
   list: {
-    flexGrow: 1
+    flexGrow: 1,
+    margin: 10
   }
 }));
 

@@ -1,5 +1,6 @@
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 import { createContainer } from "unstated-next";
+import { OAuthLink } from '../utils/authToken';
 
 interface IRepositoryNode {
   name: string;
@@ -9,35 +10,41 @@ interface IRepositoryNode {
 }
 
 function useCounter() {
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
   const [data, setData] = useState<Array<IRepositoryNode>>([]);
-  const [token, setToken] = useState("inputYourToken");
+  const [token, setToken] = useState("");
+  const [ authCode, setAuthCode ] = useState("");
   const [isFeching, setIsFetching] = useState(false);
   let getFetchingState = () => isFeching;
   let stopFetching = () => setIsFetching(false);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
+  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setValue(event.target.value);
+  // };
 
   const setRepositoryData = (repositories: any) => {
     setData(repositories);
   };
 
-  const handleClick = () => {
-    setToken(value);
-  };
   
+
+  const handleClick = () => {
+    window.location.href = OAuthLink;
+  };
+
+
   return {
     data,
-    value,
+    // value,
     token,
     setToken,
-    setValue,
+    authCode,
+    // setValue,
     isFeching,
     handleClick,
+    setAuthCode,
     stopFetching,
-    handleChange,
+    // handleChange,
     getFetchingState,
     setRepositoryData,
   };
